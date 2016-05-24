@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+class ViewController: NSViewController, NSControlTextEditingDelegate {
 
     @IBOutlet var timeText:NSTextFieldCell?
     @IBOutlet var targetText:NSTextFieldCell?
@@ -36,9 +36,11 @@ class ViewController: NSViewController {
         //print(timer.userInfo)
         targetSeconds -= 1
         print(targetSeconds)
-        timeText?.title = String(format: ":%d", targetSeconds)
+        timeText?.title = String(format: "00:00:%02d", targetSeconds)
         if targetSeconds <= 0 {
             timer.invalidate()
+            isRunning = false
+            startStopBtn?.title = "Start"
         }
         
     }
@@ -51,10 +53,30 @@ class ViewController: NSViewController {
         } else {
             startStopBtn?.title = "Start"
             timer?.invalidate()
+            timeText?.title = "00:00:00"
         }
         
         isRunning = !isRunning
     }
-
+    
+    func control(control: NSControl, textShouldEndEditing fieldEditor: NSText) -> Bool {
+        print(targetText?.title)
+        toogleStartStop(self)
+        return true
+    }
+    
+    override func keyDown(event: NSEvent) {
+        super.keyDown(event)
+        print("Caught a key down: \(event.keyCode)!")
+        switch event.keyCode {
+        case 36:
+            toogleStartStop(self)
+            print("toogle")
+        case 18,19,20,21,23,22,26,28,25,29:
+            print("inputed 0-9")
+        default:
+            print("other keys")
+        }
+    }
 }
 

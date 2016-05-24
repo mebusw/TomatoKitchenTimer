@@ -16,6 +16,10 @@ class ViewController: NSViewController, NSControlTextEditingDelegate {
     var isRunning:Bool = false
     var targetSeconds:Int = 0
     var timer:NSTimer?
+    var keySequence:[Int] = []
+    
+    // http://stackoverflow.com/questions/28012566/swift-osx-key-event
+    let keyCodeToNumberMapping:[UInt16:Int] = [18:1, 19:2, 20:3, 21:4, 23:5, 22:6, 26:7, 28:8, 25:9, 29:0]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,10 +77,15 @@ class ViewController: NSViewController, NSControlTextEditingDelegate {
             toogleStartStop(self)
             print("toogle")
         case 18,19,20,21,23,22,26,28,25,29:
-            print("inputed 0-9")
+            keySequence.append(keyCodeToNumber(event.keyCode))
+            print("inputed 0-9 => \(keySequence)")
         default:
             print("other keys")
         }
+    }
+    
+    func keyCodeToNumber(keyCode: UInt16) -> Int {
+        return keyCodeToNumberMapping[keyCode]!
     }
 }
 

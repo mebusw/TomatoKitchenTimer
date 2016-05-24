@@ -12,8 +12,10 @@
 		85331A621CF3EFA70086BE54 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85331A611CF3EFA70086BE54 /* Document.swift */; };
 		85331A641CF3EFA70086BE54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85331A631CF3EFA70086BE54 /* Assets.xcassets */; };
 		85331A671CF3EFA70086BE54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85331A651CF3EFA70086BE54 /* Main.storyboard */; };
-		85331A721CF3EFA80086BE54 /* BigTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85331A711CF3EFA80086BE54 /* BigTimerTests.swift */; };
-		85331A7D1CF3EFA80086BE54 /* BigTimerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85331A7C1CF3EFA80086BE54 /* BigTimerUITests.swift */; };
+		85331A7D1CF3EFA80086BE54 /* TomatoKitchenTimerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85331A7C1CF3EFA80086BE54 /* TomatoKitchenTimerUITests.swift */; };
+		85331A8E1CF4B2430086BE54 /* TimerCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85331A8D1CF4B2430086BE54 /* TimerCore.swift */; };
+		85331A8F1CF4B2430086BE54 /* TimerCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85331A8D1CF4B2430086BE54 /* TimerCore.swift */; };
+		85331A911CF4B67A0086BE54 /* TomatoKitchenTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85331A711CF3EFA80086BE54 /* TomatoKitchenTimerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,11 +44,12 @@
 		85331A661CF3EFA70086BE54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		85331A681CF3EFA70086BE54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85331A6D1CF3EFA80086BE54 /* TomatoKitchenTimer.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TomatoKitchenTimer.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		85331A711CF3EFA80086BE54 /* BigTimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigTimerTests.swift; sourceTree = "<group>"; };
+		85331A711CF3EFA80086BE54 /* TomatoKitchenTimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomatoKitchenTimerTests.swift; sourceTree = "<group>"; };
 		85331A731CF3EFA80086BE54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85331A781CF3EFA80086BE54 /* TomatoKitchenTimer.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TomatoKitchenTimer.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		85331A7C1CF3EFA80086BE54 /* BigTimerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigTimerUITests.swift; sourceTree = "<group>"; };
+		85331A7C1CF3EFA80086BE54 /* TomatoKitchenTimerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomatoKitchenTimerUITests.swift; sourceTree = "<group>"; };
 		85331A7E1CF3EFA80086BE54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85331A8D1CF4B2430086BE54 /* TimerCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerCore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,29 +106,27 @@
 				85331A631CF3EFA70086BE54 /* Assets.xcassets */,
 				85331A651CF3EFA70086BE54 /* Main.storyboard */,
 				85331A681CF3EFA70086BE54 /* Info.plist */,
+				85331A8D1CF4B2430086BE54 /* TimerCore.swift */,
 			);
-			name = TomatoKitchenTimer;
-			path = BigTimer;
+			path = TomatoKitchenTimer;
 			sourceTree = "<group>";
 		};
 		85331A701CF3EFA80086BE54 /* TomatoKitchenTimerTests */ = {
 			isa = PBXGroup;
 			children = (
-				85331A711CF3EFA80086BE54 /* BigTimerTests.swift */,
+				85331A711CF3EFA80086BE54 /* TomatoKitchenTimerTests.swift */,
 				85331A731CF3EFA80086BE54 /* Info.plist */,
 			);
-			name = TomatoKitchenTimerTests;
-			path = BigTimerTests;
+			path = TomatoKitchenTimerTests;
 			sourceTree = "<group>";
 		};
 		85331A7B1CF3EFA80086BE54 /* TomatoKitchenTimerUITests */ = {
 			isa = PBXGroup;
 			children = (
-				85331A7C1CF3EFA80086BE54 /* BigTimerUITests.swift */,
+				85331A7C1CF3EFA80086BE54 /* TomatoKitchenTimerUITests.swift */,
 				85331A7E1CF3EFA80086BE54 /* Info.plist */,
 			);
-			name = TomatoKitchenTimerUITests;
-			path = BigTimerUITests;
+			path = TomatoKitchenTimerUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85331A8E1CF4B2430086BE54 /* TimerCore.swift in Sources */,
 				85331A601CF3EFA70086BE54 /* ViewController.swift in Sources */,
 				85331A5E1CF3EFA70086BE54 /* AppDelegate.swift in Sources */,
 				85331A621CF3EFA70086BE54 /* Document.swift in Sources */,
@@ -268,7 +270,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85331A721CF3EFA80086BE54 /* BigTimerTests.swift in Sources */,
+				85331A911CF4B67A0086BE54 /* TomatoKitchenTimerTests.swift in Sources */,
+				85331A8F1CF4B2430086BE54 /* TimerCore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85331A7D1CF3EFA80086BE54 /* BigTimerUITests.swift in Sources */,
+				85331A7D1CF3EFA80086BE54 /* TomatoKitchenTimerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,7 +397,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = BigTimer/Info.plist;
+				INFOPLIST_FILE = TomatoKitchenTimer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mebusw.TomatoKitchenTimer;
 				PRODUCT_NAME = TomatoKitchenTimer;
@@ -406,7 +409,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = BigTimer/Info.plist;
+				INFOPLIST_FILE = TomatoKitchenTimer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mebusw.TomatoKitchenTimer;
 				PRODUCT_NAME = TomatoKitchenTimer;
@@ -418,7 +421,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = BigTimerTests/Info.plist;
+				INFOPLIST_FILE = TomatoKitchenTimerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mebusw.BigTimerTests;
 				PRODUCT_NAME = TomatoKitchenTimer;
@@ -431,7 +434,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = BigTimerTests/Info.plist;
+				INFOPLIST_FILE = TomatoKitchenTimerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mebusw.BigTimerTests;
 				PRODUCT_NAME = TomatoKitchenTimer;
@@ -443,7 +446,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = BigTimerUITests/Info.plist;
+				INFOPLIST_FILE = TomatoKitchenTimerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mebusw.BigTimerUITests;
 				PRODUCT_NAME = TomatoKitchenTimer;
@@ -455,7 +458,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = BigTimerUITests/Info.plist;
+				INFOPLIST_FILE = TomatoKitchenTimerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mebusw.BigTimerUITests;
 				PRODUCT_NAME = TomatoKitchenTimer;
@@ -482,6 +485,7 @@
 				85331A831CF3EFA80086BE54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		85331A841CF3EFA80086BE54 /* Build configuration list for PBXNativeTarget "TomatoKitchenTimerTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +494,7 @@
 				85331A861CF3EFA80086BE54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		85331A871CF3EFA80086BE54 /* Build configuration list for PBXNativeTarget "TomatoKitchenTimerUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +503,7 @@
 				85331A891CF3EFA80086BE54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

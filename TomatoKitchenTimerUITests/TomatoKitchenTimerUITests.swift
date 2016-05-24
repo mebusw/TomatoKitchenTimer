@@ -8,7 +8,7 @@
 
 import XCTest
 
-class BigTimerUITests: XCTestCase {
+class TomatoKitchenTimerUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()

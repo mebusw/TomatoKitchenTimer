@@ -11,10 +11,13 @@ import XCTest
 
 
 class TomatoKitchenTimerTests: XCTestCase {
+    var timerCore:TimerCore!
     
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        timerCore = TimerCore()
+
     }
     
     override func tearDown() {
@@ -29,7 +32,6 @@ class TomatoKitchenTimerTests: XCTestCase {
     
 
     func testPutMoreThanSixNumbers() {
-        let timerCore = TimerCore()
         timerCore.put(1)
         timerCore.put(2)
         timerCore.put(3)
@@ -42,8 +44,7 @@ class TomatoKitchenTimerTests: XCTestCase {
         XCTAssertEqual([2, 3, 4, 5, 6, 7], timerCore.seq)
     }
 
-    func testGenerateNumberPairsAnd() {
-        let timerCore = TimerCore()
+    func testGenerateNumberPairsAndTotal() {
         timerCore.put(1)
         timerCore.put(2)
         timerCore.put(3)
@@ -53,6 +54,22 @@ class TomatoKitchenTimerTests: XCTestCase {
         
         XCTAssertEqual([12, 34, 56, 12 * 3600 + 34 * 60 + 56], timerCore.generate())
     }
+
+    func testValidateNumberPairs() {
+        timerCore.put(7)
+        XCTAssertEqual([0, 0, 7, 7], timerCore.generate())
+        
+        timerCore.put(8)
+        XCTAssertEqual([0, 0, 59, 59], timerCore.generate())
+        
+        timerCore.put(1)
+        XCTAssertEqual([0, 7, 59, 7 * 60 + 59], timerCore.generate())
+
+        timerCore.put(2)
+        XCTAssertEqual([0, 59, 12, 59 * 60 + 12], timerCore.generate())
+
+    }
+
     
     func testPerformanceExample() {
         // This is an example of a performance test case.

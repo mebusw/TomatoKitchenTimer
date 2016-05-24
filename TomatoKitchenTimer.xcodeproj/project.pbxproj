@@ -12,10 +12,10 @@
 		85331A621CF3EFA70086BE54 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85331A611CF3EFA70086BE54 /* Document.swift */; };
 		85331A641CF3EFA70086BE54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85331A631CF3EFA70086BE54 /* Assets.xcassets */; };
 		85331A671CF3EFA70086BE54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85331A651CF3EFA70086BE54 /* Main.storyboard */; };
-		85331A7D1CF3EFA80086BE54 /* TomatoKitchenTimerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85331A7C1CF3EFA80086BE54 /* TomatoKitchenTimerUITests.swift */; };
 		85331A8E1CF4B2430086BE54 /* TimerCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85331A8D1CF4B2430086BE54 /* TimerCore.swift */; };
 		85331A8F1CF4B2430086BE54 /* TimerCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85331A8D1CF4B2430086BE54 /* TimerCore.swift */; };
 		85331A911CF4B67A0086BE54 /* TomatoKitchenTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85331A711CF3EFA80086BE54 /* TomatoKitchenTimerTests.swift */; };
+		85331A941CF4B9500086BE54 /* TomatoKitchenTimerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85331A931CF4B9500086BE54 /* TomatoKitchenTimerUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,9 +47,10 @@
 		85331A711CF3EFA80086BE54 /* TomatoKitchenTimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomatoKitchenTimerTests.swift; sourceTree = "<group>"; };
 		85331A731CF3EFA80086BE54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85331A781CF3EFA80086BE54 /* TomatoKitchenTimer.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TomatoKitchenTimer.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		85331A7C1CF3EFA80086BE54 /* TomatoKitchenTimerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomatoKitchenTimerUITests.swift; sourceTree = "<group>"; };
 		85331A7E1CF3EFA80086BE54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85331A8D1CF4B2430086BE54 /* TimerCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerCore.swift; sourceTree = "<group>"; };
+		85331A921CF4B9500086BE54 /* TomatoKitchenTimerUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TomatoKitchenTimerUITests-Bridging-Header.h"; sourceTree = "<group>"; };
+		85331A931CF4B9500086BE54 /* TomatoKitchenTimerUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TomatoKitchenTimerUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,8 +124,9 @@
 		85331A7B1CF3EFA80086BE54 /* TomatoKitchenTimerUITests */ = {
 			isa = PBXGroup;
 			children = (
-				85331A7C1CF3EFA80086BE54 /* TomatoKitchenTimerUITests.swift */,
 				85331A7E1CF3EFA80086BE54 /* Info.plist */,
+				85331A931CF4B9500086BE54 /* TomatoKitchenTimerUITests.swift */,
+				85331A921CF4B9500086BE54 /* TomatoKitchenTimerUITests-Bridging-Header.h */,
 			);
 			path = TomatoKitchenTimerUITests;
 			sourceTree = "<group>";
@@ -279,7 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85331A7D1CF3EFA80086BE54 /* TomatoKitchenTimerUITests.swift in Sources */,
+				85331A941CF4B9500086BE54 /* TomatoKitchenTimerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,7 +425,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = TomatoKitchenTimerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mebusw.BigTimerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mebusw.TomatoKitchenTimerTests;
 				PRODUCT_NAME = TomatoKitchenTimer;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TomatoKitchenTimer.app/Contents/MacOS/TomatoKitchenTimer";
 			};
@@ -436,7 +438,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = TomatoKitchenTimerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mebusw.BigTimerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mebusw.TomatoKitchenTimerTests;
 				PRODUCT_NAME = TomatoKitchenTimer;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TomatoKitchenTimer.app/Contents/MacOS/TomatoKitchenTimer";
 			};
@@ -445,24 +447,29 @@
 		85331A881CF3EFA80086BE54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = TomatoKitchenTimerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mebusw.BigTimerUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mebusw.TomatoKitchenTimerUITests;
 				PRODUCT_NAME = TomatoKitchenTimer;
-				TEST_TARGET_NAME = BigTimer;
+				SWIFT_OBJC_BRIDGING_HEADER = "TomatoKitchenTimerUITests/TomatoKitchenTimerUITests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TEST_TARGET_NAME = TomatoKitchenTimer;
 			};
 			name = Debug;
 		};
 		85331A891CF3EFA80086BE54 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = TomatoKitchenTimerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mebusw.BigTimerUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mebusw.TomatoKitchenTimerUITests;
 				PRODUCT_NAME = TomatoKitchenTimer;
-				TEST_TARGET_NAME = BigTimer;
+				SWIFT_OBJC_BRIDGING_HEADER = "TomatoKitchenTimerUITests/TomatoKitchenTimerUITests-Bridging-Header.h";
+				TEST_TARGET_NAME = TomatoKitchenTimer;
 			};
 			name = Release;
 		};

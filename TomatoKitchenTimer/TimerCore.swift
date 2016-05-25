@@ -10,10 +10,19 @@ import Cocoa
 
 
 class TimerCore: NSObject {
+    var isRunning:Bool = false
     var seq:[Int] = [0, 0, 0, 0, 0, 0]
     
     override init() {
         super.init()
+    }
+    
+    func start() {
+        
+    }
+    
+    func stop() {
+        
     }
     
     func put(number:Int) {
@@ -29,5 +38,12 @@ class TimerCore: NSObject {
         var second = seq[4] * 10 + seq[5]
         second = second > 59 ? 59 : second
         return [hour, minute, second, hour * 3600 + minute * 60 + second]
+    }
+    
+    func secToDisplayable(seconds: Int) -> String {
+        let hour = seconds / 3600
+        let minute = (seconds - hour * 3600) / 60
+        let second = seconds - hour * 3600 - minute * 60
+        return String(format: "%02d:%02d:%02d", hour, minute, second)
     }
 }

@@ -70,6 +70,11 @@ class TomatoKitchenTimerTests: XCTestCase {
 
     }
 
+    func testSecondsToDisplayable() {
+        XCTAssertEqual("00:00:02", timerCore.secToDisplayable(2))
+        XCTAssertEqual("00:01:02", timerCore.secToDisplayable(62))
+        XCTAssertEqual("01:01:02", timerCore.secToDisplayable(3662))
+    }
     
     func testPerformanceExample() {
         // This is an example of a performance test case.

@@ -7,25 +7,25 @@
 //
 
 import Cocoa
+import AVFoundation
 
 class ViewController: NSViewController, NSControlTextEditingDelegate {
 
     @IBOutlet var timeText:NSTextFieldCell?
     @IBOutlet var targetText:NSTextFieldCell?
     @IBOutlet var startStopBtn:NSButton?
-    var isRunning:Bool = false
     var targetSeconds:Int = 0
     var timer:NSTimer?
     var timerCore = TimerCore()
+    var beepPlayer:AVAudioPlayer?
     
     // http://stackoverflow.com/questions/28012566/swift-osx-key-event
     let keyCodeToNumberMapping:[UInt16:Int] = [18:1, 19:2, 20:3, 21:4, 23:5, 22:6, 26:7, 28:8, 25:9, 29:0]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
+        // Do any additional setup after loading the view.
     }
 
     override var representedObject: AnyObject? {
@@ -40,22 +40,34 @@ class ViewController: NSViewController, NSControlTextEditingDelegate {
         
         targetSeconds -= 1
         
-        //TODO
-        timeText?.title = String(format: "00:00:%02d", targetSeconds)
+        timeText?.title = timerCore.secToDisplayable(targetSeconds)
         
         
         //TODO extract a stop method and reset targetText
         if targetSeconds <= 0 {
             timer.invalidate()
-            isRunning = false
+            timerCore.isRunning = false
             startStopBtn?.title = "Start"
+            playSoundClip()
         }
         
     }
+    
+    func playSoundClip() {
+        do {
+            let beepSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("Gliss", ofType: "mp3")!)
+            print(beepSound)
+            beepPlayer = try AVAudioPlayer(contentsOfURL: beepSound)
+            print(beepPlayer!.play())
+        } catch {
+            print("No sound found")
+        }
+    }
 
     @IBAction func toogleStartStop(sender:NSObject) {
-        if !isRunning {
+        if !timerCore.isRunning {
             startStopBtn?.title = "Stop"
+            timeText?.title = (targetText?.title)!
             timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(ViewController.tick(_:)), userInfo: nil, repeats: true)
         } else {
             startStopBtn?.title = "Start"
@@ -63,7 +75,7 @@ class ViewController: NSViewController, NSControlTextEditingDelegate {
             timeText?.title = "00:00:00"
         }
         
-        isRunning = !isRunning
+        timerCore.isRunning = !timerCore.isRunning
     }
     
     override func keyDown(event: NSEvent) {
@@ -76,7 +88,7 @@ class ViewController: NSViewController, NSControlTextEditingDelegate {
         case 18,19,20,21,23,22,26,28,25,29:
             timerCore.put(keyCodeToNumber(event.keyCode))
             let seq = timerCore.generate()
-            targetText?.title = String.init(format: "%02d:%02d:%02d", seq[0], seq[1], seq[2])
+            targetText?.title = String(format: "%02d:%02d:%02d", seq[0], seq[1], seq[2])
             targetSeconds = seq[3]
         default:
             print("other keys, \(event.keyCode)")

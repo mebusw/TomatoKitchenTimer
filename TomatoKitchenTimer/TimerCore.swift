@@ -13,21 +13,27 @@ class TimerCore: NSObject {
     var isRunning:Bool = false
     var seq:[Int] = [0, 0, 0, 0, 0, 0]
     var targetSeconds:Int = 0
+    var countDownSeconds:Int = 0
     
     override init() {
         super.init()
     }
     
-    func start(startCallback: Selector) {
-        print("inside start")
-        //startCallback()
+    func start(callback: Selector) {
+        self.countDownSeconds = self.targetSeconds
+        //callback.
     }
     
     func stop() {
-        
+        self.countDownSeconds = 0
     }
     
     func tick() {
+        countDownSeconds -= 1
+        
+        if countDownSeconds <= 0 {
+            isRunning = false
+        }
         
     }
     

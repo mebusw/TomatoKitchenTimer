@@ -36,18 +36,10 @@ class ViewController: NSViewController, NSControlTextEditingDelegate {
     func tick(timer : NSTimer) {
         timerCore.tick()
         
-        let timestamp = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .ShortStyle, timeStyle: .LongStyle)
-        print(timestamp)
+        countDownText?.title = timerCore.secToDisplayable(timerCore.countDownSeconds)
         
-        timerCore.targetSeconds -= 1
-        
-        countDownText?.title = timerCore.secToDisplayable(timerCore.targetSeconds)
-        
-        
-        //TODO extract a stop method and reset targetText
-        if timerCore.targetSeconds <= 0 {
+        if timerCore.countDownSeconds <= 0 {
             timer.invalidate()
-            timerCore.isRunning = false
             startStopBtn?.title = "Start"
             playSoundClip()
         }
@@ -69,7 +61,7 @@ class ViewController: NSViewController, NSControlTextEditingDelegate {
         if !timerCore.isRunning {
             timerCore.start(#selector(self.startCB))
             startStopBtn?.title = "Stop"
-            countDownText?.title = (targetText?.title)!
+            countDownText?.title = timerCore.secToDisplayable(timerCore.targetSeconds)
             timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(self.tick(_:)), userInfo: nil, repeats: true)
         } else {
             timerCore.stop()

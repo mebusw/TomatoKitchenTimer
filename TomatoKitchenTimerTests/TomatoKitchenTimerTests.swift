@@ -52,21 +52,21 @@ class TomatoKitchenTimerTests: XCTestCase {
         timerCore.put(5)
         timerCore.put(6)
         
-        XCTAssertEqual([12, 34, 56, 12 * 3600 + 34 * 60 + 56], timerCore.generate())
+        XCTAssertEqual(12 * 3600 + 34 * 60 + 56, timerCore.targetSeconds)
     }
 
     func testValidateNumberPairs() {
         timerCore.put(7)
-        XCTAssertEqual([0, 0, 7, 7], timerCore.generate())
+        XCTAssertEqual(7, timerCore.targetSeconds)
         
         timerCore.put(8)
-        XCTAssertEqual([0, 0, 59, 59], timerCore.generate())
+        XCTAssertEqual(59, timerCore.targetSeconds)
         
         timerCore.put(1)
-        XCTAssertEqual([0, 7, 59, 7 * 60 + 59], timerCore.generate())
+        XCTAssertEqual(7 * 60 + 59, timerCore.targetSeconds)
 
         timerCore.put(2)
-        XCTAssertEqual([0, 59, 12, 59 * 60 + 12], timerCore.generate())
+        XCTAssertEqual(59 * 60 + 12, timerCore.targetSeconds)
 
     }
 

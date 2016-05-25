@@ -11,10 +11,9 @@ import AVFoundation
 
 class ViewController: NSViewController, NSControlTextEditingDelegate {
 
-    @IBOutlet var timeText:NSTextFieldCell?
+    @IBOutlet var countDownText:NSTextFieldCell?
     @IBOutlet var targetText:NSTextFieldCell?
     @IBOutlet var startStopBtn:NSButton?
-    var targetSeconds:Int = 0
     var timer:NSTimer?
     var timerCore = TimerCore()
     var beepPlayer:AVAudioPlayer?
@@ -35,16 +34,18 @@ class ViewController: NSViewController, NSControlTextEditingDelegate {
     }
     
     func tick(timer : NSTimer) {
+        timerCore.tick()
+        
         let timestamp = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .ShortStyle, timeStyle: .LongStyle)
         print(timestamp)
         
-        targetSeconds -= 1
+        timerCore.targetSeconds -= 1
         
-        timeText?.title = timerCore.secToDisplayable(targetSeconds)
+        countDownText?.title = timerCore.secToDisplayable(timerCore.targetSeconds)
         
         
         //TODO extract a stop method and reset targetText
-        if targetSeconds <= 0 {
+        if timerCore.targetSeconds <= 0 {
             timer.invalidate()
             timerCore.isRunning = false
             startStopBtn?.title = "Start"
@@ -66,16 +67,22 @@ class ViewController: NSViewController, NSControlTextEditingDelegate {
 
     @IBAction func toogleStartStop(sender:NSObject) {
         if !timerCore.isRunning {
+            timerCore.start(#selector(self.startCB))
             startStopBtn?.title = "Stop"
-            timeText?.title = (targetText?.title)!
-            timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(ViewController.tick(_:)), userInfo: nil, repeats: true)
+            countDownText?.title = (targetText?.title)!
+            timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(self.tick(_:)), userInfo: nil, repeats: true)
         } else {
+            timerCore.stop()
             startStopBtn?.title = "Start"
             timer?.invalidate()
-            timeText?.title = "00:00:00"
+            countDownText?.title = "00:00:00"
         }
         
         timerCore.isRunning = !timerCore.isRunning
+    }
+    
+    func startCB() {
+        print("start callback")
     }
     
     override func keyDown(event: NSEvent) {
@@ -87,9 +94,8 @@ class ViewController: NSViewController, NSControlTextEditingDelegate {
             print("toogle")
         case 18,19,20,21,23,22,26,28,25,29:
             timerCore.put(keyCodeToNumber(event.keyCode))
-            let seq = timerCore.generate()
-            targetText?.title = String(format: "%02d:%02d:%02d", seq[0], seq[1], seq[2])
-            targetSeconds = seq[3]
+            
+            targetText?.title = timerCore.secToDisplayable(timerCore.targetSeconds)
         default:
             print("other keys, \(event.keyCode)")
         }

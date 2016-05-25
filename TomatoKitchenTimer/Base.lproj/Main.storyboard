@@ -713,9 +713,9 @@
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="countDownText" destination="Cc7-nU-5Mv" id="dIb-An-08V"/>
                         <outlet property="startStopBtn" destination="Ydj-3M-XFX" id="lhS-XI-2zj"/>
                         <outlet property="targetText" destination="9zR-mf-6dc" id="n0J-7L-8ou"/>
-                        <outlet property="timeText" destination="Cc7-nU-5Mv" id="HBN-BZ-6xt"/>
                     </connections>
                 </viewController>
                 <customObject id="2Tp-Fl-jBw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

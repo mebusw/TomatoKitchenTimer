@@ -14,27 +14,45 @@ class TimerCore: NSObject {
     var seq:[Int] = [0, 0, 0, 0, 0, 0]
     var targetSeconds:Int = 0
     var countDownSeconds:Int = 0
-    
+    var timer:NSTimer?
+    var timeUpCallback: () -> Void = {}
+    var tickCallback: () -> Void = {}
+
     override init() {
         super.init()
     }
     
-    func start(callback: Selector) {
+    func start(callback: () -> Void = {}, timeUpCallback: () -> Void = {}, tickCallback: () -> Void = {}) {
+        self.timeUpCallback = timeUpCallback
+        self.tickCallback = tickCallback
+        
         self.countDownSeconds = self.targetSeconds
-        //callback.
+        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(self.tick(_:)), userInfo: nil, repeats: true)
+
+        callback()
     }
     
-    func stop() {
-        self.countDownSeconds = 0
+    func stop(callback: () -> Void = {}) {
+        reset()
+        
+        callback()
     }
     
-    func tick() {
+    func tick(timer : NSTimer) {
         countDownSeconds -= 1
+        self.tickCallback()
         
         if countDownSeconds <= 0 {
             isRunning = false
+            reset()
+            self.timeUpCallback()
         }
         
+    }
+    
+    private func reset() {
+        countDownSeconds = 0
+        timer?.invalidate()
     }
     
     func put(number:Int) {

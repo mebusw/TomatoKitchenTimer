@@ -9,14 +9,19 @@
 import Cocoa
 import AVFoundation
 
+/* TODO: 
+ keyin cooldown
+ choose music
+ animation
+ */
+
 class ViewController: NSViewController, NSControlTextEditingDelegate {
 
     @IBOutlet var countDownText:NSTextFieldCell?
     @IBOutlet var targetText:NSTextFieldCell?
     @IBOutlet var startStopBtn:NSButton?
-    var timer:NSTimer?
     var timerCore = TimerCore()
-    var beepPlayer:AVAudioPlayer?
+    var beepPlayer:AVAudioPlayer?   /** AVAudioPlayer must be a class-level variable */
     
     // http://stackoverflow.com/questions/28012566/swift-osx-key-event
     let keyCodeToNumberMapping:[UInt16:Int] = [18:1, 19:2, 20:3, 21:4, 23:5, 22:6, 26:7, 28:8, 25:9, 29:0]
@@ -32,19 +37,7 @@ class ViewController: NSViewController, NSControlTextEditingDelegate {
         // Update the view, if already loaded.
         }
     }
-    
-    func tick(timer : NSTimer) {
-        timerCore.tick()
-        
-        countDownText?.title = timerCore.secToDisplayable(timerCore.countDownSeconds)
-        
-        if timerCore.countDownSeconds <= 0 {
-            timer.invalidate()
-            startStopBtn?.title = "Start"
-            playSoundClip()
-        }
-        
-    }
+
     
     func playSoundClip() {
         do {
@@ -59,23 +52,34 @@ class ViewController: NSViewController, NSControlTextEditingDelegate {
 
     @IBAction func toogleStartStop(sender:NSObject) {
         if !timerCore.isRunning {
-            timerCore.start(#selector(self.startCB))
-            startStopBtn?.title = "Stop"
-            countDownText?.title = timerCore.secToDisplayable(timerCore.targetSeconds)
-            timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(self.tick(_:)), userInfo: nil, repeats: true)
+            timerCore.start({
+                    print("start callback")
+                    self.startStopBtn?.title = "Stop"
+                    self.countDownText?.title = self.timerCore.secToDisplayable(self.timerCore.targetSeconds)
+                },
+                timeUpCallback: {
+                    print("timeup callback")
+                    self.startStopBtn?.title = "Start"
+                    self.playSoundClip()
+
+                },
+                tickCallback: {
+                    print("tick callback")
+                    self.countDownText?.title = self.timerCore.secToDisplayable(self.timerCore.countDownSeconds)
+                }
+            )
         } else {
-            timerCore.stop()
-            startStopBtn?.title = "Start"
-            timer?.invalidate()
-            countDownText?.title = "00:00:00"
+            timerCore.stop() {
+                print("stop callback")
+                self.startStopBtn?.title = "Start"
+                self.countDownText?.title = self.timerCore.secToDisplayable(self.timerCore.countDownSeconds)
+            }
         }
         
         timerCore.isRunning = !timerCore.isRunning
     }
-    
-    func startCB() {
-        print("start callback")
-    }
+
+
     
     override func keyDown(event: NSEvent) {
         super.keyDown(event)

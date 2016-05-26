@@ -22,21 +22,23 @@ class TimerCore: NSObject {
         super.init()
     }
     
-    func start(callback: () -> Void = {}, timeUpCallback: () -> Void = {}, tickCallback: () -> Void = {}) {
+    func toogleStartStop(startCallback startCallback: () -> Void = {}, stopCallback: () -> Void = {}, timeUpCallback: () -> Void = {}, tickCallback: () -> Void = {}) {
         self.timeUpCallback = timeUpCallback
         self.tickCallback = tickCallback
         
-        self.countDownSeconds = self.targetSeconds
-        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(self.tick(_:)), userInfo: nil, repeats: true)
-
-        callback()
+        if !isRunning {
+            self.countDownSeconds = self.targetSeconds
+            timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(self.tick(_:)), userInfo: nil, repeats: true)
+            startCallback()
+        } else {
+            reset()
+            stopCallback()
+            
+        }
+        isRunning = !isRunning
     }
     
-    func stop(callback: () -> Void = {}) {
-        reset()
-        
-        callback()
-    }
+
     
     func tick(timer : NSTimer) {
         countDownSeconds -= 1

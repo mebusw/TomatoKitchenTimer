@@ -17,6 +17,7 @@ import AVFoundation
 
 class ViewController: NSViewController, NSControlTextEditingDelegate {
 
+    let KEY_ENTER:UInt16 = 36
     @IBOutlet var countDownText:NSTextFieldCell?
     @IBOutlet var targetText:NSTextFieldCell?
     @IBOutlet var startStopBtn:NSButton?
@@ -51,53 +52,39 @@ class ViewController: NSViewController, NSControlTextEditingDelegate {
     }
 
     @IBAction func toogleStartStop(sender:NSObject) {
-        if !timerCore.isRunning {
-            timerCore.start({
-                    print("start callback")
-                    self.startStopBtn?.title = "Stop"
-                    self.countDownText?.title = self.timerCore.secToDisplayable(self.timerCore.targetSeconds)
-                },
-                timeUpCallback: {
-                    print("timeup callback")
-                    self.startStopBtn?.title = "Start"
-                    self.playSoundClip()
-
-                },
-                tickCallback: {
-                    print("tick callback")
-                    self.countDownText?.title = self.timerCore.secToDisplayable(self.timerCore.countDownSeconds)
-                }
-            )
-        } else {
-            timerCore.stop() {
-                print("stop callback")
+        timerCore.toogleStartStop(
+            startCallback: {
+                self.startStopBtn?.title = "Stop"
+                self.countDownText?.title = self.timerCore.secToDisplayable(self.timerCore.targetSeconds)
+            },
+            stopCallback: {
                 self.startStopBtn?.title = "Start"
+            },
+            timeUpCallback: {
+                self.startStopBtn?.title = "Start"
+                self.playSoundClip()
+            },
+            tickCallback: {
                 self.countDownText?.title = self.timerCore.secToDisplayable(self.timerCore.countDownSeconds)
-            }
-        }
-        
-        timerCore.isRunning = !timerCore.isRunning
+            })
     }
 
 
-    
     override func keyDown(event: NSEvent) {
         super.keyDown(event)
 
         switch event.keyCode {
-        case 36:
+        case KEY_ENTER:
             toogleStartStop(self)
-            print("toogle")
         case 18,19,20,21,23,22,26,28,25,29:
             timerCore.put(keyCodeToNumber(event.keyCode))
-            
             targetText?.title = timerCore.secToDisplayable(timerCore.targetSeconds)
         default:
             print("other keys, \(event.keyCode)")
         }
     }
     
-    func keyCodeToNumber(keyCode: UInt16) -> Int {
+    private func keyCodeToNumber(keyCode: UInt16) -> Int {
         return keyCodeToNumberMapping[keyCode]!
     }
 }

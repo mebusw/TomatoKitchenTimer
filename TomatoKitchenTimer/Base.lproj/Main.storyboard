@@ -704,7 +704,7 @@
                             </button>
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" preferredMaxLayoutWidth="246" translatesAutoresizingMaskIntoConstraints="NO" id="TyV-c9-G0C">
                                 <rect key="frame" x="17" y="186" width="762" height="294"/>
-                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="00:00:00" id="Cc7-nU-5Mv">
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="00:00:00" id="Cc7-nU-5Mv">
                                     <font key="font" metaFont="system" size="164"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>

@@ -42,7 +42,7 @@ class ViewController: NSViewController, NSControlTextEditingDelegate {
     
     func playSoundClip() {
         do {
-            let beepSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("Gliss", ofType: "mp3")!)
+            let beepSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("Rooster", ofType: "mp3")!)
             print(beepSound)
             beepPlayer = try AVAudioPlayer(contentsOfURL: beepSound)
             print(beepPlayer!.play())
@@ -54,14 +54,17 @@ class ViewController: NSViewController, NSControlTextEditingDelegate {
     @IBAction func toogleStartStop(sender:NSObject) {
         timerCore.toogleStartStop(
             startCallback: {
-                self.startStopBtn?.title = "Stop"
+                //self.startStopBtn?.title = "Stop"
+                self.startStopBtn?.image = NSImage(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("PicButtonStop", ofType: "png")!))
                 self.countDownText?.title = self.timerCore.secToDisplayable(self.timerCore.targetSeconds)
             },
             stopCallback: {
-                self.startStopBtn?.title = "Start"
+                //self.startStopBtn?.title = "Start"
+                self.startStopBtn?.image = NSImage(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("PicButtonStart", ofType: "png")!))
             },
             timeUpCallback: {
-                self.startStopBtn?.title = "Start"
+                //self.startStopBtn?.title = "Start"
+                self.startStopBtn?.image = NSImage(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("PicButtonStart", ofType: "png")!))
                 self.playSoundClip()
             },
             tickCallback: {

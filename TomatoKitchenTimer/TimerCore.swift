@@ -17,6 +17,7 @@ class TimerCore: NSObject {
     var timer:NSTimer?
     var timeUpCallback: () -> Void = {}
     var tickCallback: () -> Void = {}
+    var startTime:NSDate?
 
     override init() {
         super.init()
@@ -29,19 +30,21 @@ class TimerCore: NSObject {
         if !isRunning {
             self.countDownSeconds = self.targetSeconds
             timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(self.tick(_:)), userInfo: nil, repeats: true)
+            NSRunLoop.currentRunLoop().addTimer(timer!, forMode: NSRunLoopCommonModes)
+            startTime = NSDate()
+            
             startCallback()
         } else {
             reset()
             stopCallback()
-            
         }
         isRunning = !isRunning
     }
     
-
-    
     func tick(timer : NSTimer) {
-        countDownSeconds -= 1
+        let interval:NSTimeInterval = NSDate().timeIntervalSinceDate(startTime!)
+        print(interval)
+        countDownSeconds = targetSeconds - Int(interval)
         self.tickCallback()
         
         if countDownSeconds <= 0 {

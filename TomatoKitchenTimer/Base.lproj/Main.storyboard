@@ -711,7 +711,7 @@
                                 </connections>
                             </button>
                             <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9h5-Q2-WSJ">
-                                <rect key="frame" x="607" y="88" width="134" height="26"/>
+                                <rect key="frame" x="529" y="150" width="134" height="26"/>
                                 <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" numberOfVisibleItems="3" id="Fww-ig-f3e">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -724,17 +724,26 @@
                                 </comboBoxCell>
                             </comboBox>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KlB-Ke-vDs">
-                                <rect key="frame" x="556" y="73" width="45" height="57"/>
+                                <rect key="frame" x="478" y="135" width="45" height="57"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="🎵" id="DTN-dY-bNI">
                                     <font key="font" size="36" name="AppleColorEmoji"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9W8-nd-DbO">
+                                <rect key="frame" x="467" y="0.0" width="277" height="138"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="fdfas" drawsBackground="YES" id="A1i-I7-b0F">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="countDownText" destination="Cc7-nU-5Mv" id="dIb-An-08V"/>
+                        <outlet property="logger" destination="A1i-I7-b0F" id="HQo-ll-U7k"/>
                         <outlet property="startStopBtn" destination="Ydj-3M-XFX" id="lhS-XI-2zj"/>
                         <outlet property="targetText" destination="9zR-mf-6dc" id="n0J-7L-8ou"/>
                     </connections>

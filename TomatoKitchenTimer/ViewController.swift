@@ -23,6 +23,7 @@ class ViewController: NSViewController, NSControlTextEditingDelegate {
     @IBOutlet var startStopBtn:NSButton?
     var timerCore = TimerCore()
     var beepPlayer:AVAudioPlayer?   /** AVAudioPlayer must be a class-level variable */
+    @IBOutlet var logger:NSTextFieldCell?
     
     // http://stackoverflow.com/questions/28012566/swift-osx-key-event
     let keyCodeToNumberMapping:[UInt16:Int] = [18:1, 19:2, 20:3, 21:4, 23:5, 22:6, 26:7, 28:8, 25:9, 29:0]
@@ -33,7 +34,7 @@ class ViewController: NSViewController, NSControlTextEditingDelegate {
         // Do any additional setup after loading the view.
     }
 
-    override var representedObject: AnyObject? {
+    override var representedObject: Any? {
         didSet {
         // Update the view, if already loaded.
         }
@@ -42,39 +43,40 @@ class ViewController: NSViewController, NSControlTextEditingDelegate {
     
     func playSoundClip() {
         do {
-            let beepSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("Rooster", ofType: "mp3")!)
+            let beepSound = URL(fileURLWithPath: Bundle.main.path(forResource: "Rooster", ofType: "mp3")!)
             print(beepSound)
-            beepPlayer = try AVAudioPlayer(contentsOfURL: beepSound)
+            beepPlayer = try AVAudioPlayer(contentsOf: beepSound)
             print(beepPlayer!.play())
         } catch {
             print("No sound found")
         }
     }
 
-    @IBAction func toogleStartStop(sender:NSObject) {
+    @IBAction func toogleStartStop(_ sender:NSObject) {
         timerCore.toogleStartStop(
             startCallback: {
                 //self.startStopBtn?.title = "Stop"
-                self.startStopBtn?.image = NSImage(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("PicButtonStop", ofType: "png")!))
+                self.startStopBtn?.image = NSImage(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: "PicButtonStop", ofType: "png")!))
                 self.countDownText?.title = self.timerCore.secToDisplayable(self.timerCore.targetSeconds)
             },
             stopCallback: {
                 //self.startStopBtn?.title = "Start"
-                self.startStopBtn?.image = NSImage(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("PicButtonStart", ofType: "png")!))
+                self.startStopBtn?.image = NSImage(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: "PicButtonStart", ofType: "png")!))
             },
             timeUpCallback: {
                 //self.startStopBtn?.title = "Start"
-                self.startStopBtn?.image = NSImage(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("PicButtonStart", ofType: "png")!))
+                self.startStopBtn?.image = NSImage(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: "PicButtonStart", ofType: "png")!))
                 self.playSoundClip()
             },
             tickCallback: {
                 self.countDownText?.title = self.timerCore.secToDisplayable(self.timerCore.countDownSeconds)
+                self.logger?.title += self.timerCore.log
             })
     }
 
 
-    override func keyDown(event: NSEvent) {
-        super.keyDown(event)
+    override func keyDown(with event: NSEvent) {
+        super.keyDown(with: event)
 
         switch event.keyCode {
         case KEY_ENTER:
@@ -87,7 +89,7 @@ class ViewController: NSViewController, NSControlTextEditingDelegate {
         }
     }
     
-    private func keyCodeToNumber(keyCode: UInt16) -> Int {
+    fileprivate func keyCodeToNumber(_ keyCode: UInt16) -> Int {
         return keyCodeToNumberMapping[keyCode]!
     }
 }

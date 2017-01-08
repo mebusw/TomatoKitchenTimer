@@ -14,24 +14,25 @@ class TimerCore: NSObject {
     var seq:[Int] = [0, 0, 0, 0, 0, 0]
     var targetSeconds:Int = 0
     var countDownSeconds:Int = 0
-    var timer:NSTimer?
+    var timer:Timer?
     var timeUpCallback: () -> Void = {}
     var tickCallback: () -> Void = {}
-    var startTime:NSDate?
+    var startTime:Date?
+    var log: String = ""
 
     override init() {
         super.init()
     }
     
-    func toogleStartStop(startCallback startCallback: () -> Void = {}, stopCallback: () -> Void = {}, timeUpCallback: () -> Void = {}, tickCallback: () -> Void = {}) {
+    func toogleStartStop(startCallback: () -> Void = {}, stopCallback: () -> Void = {}, timeUpCallback: @escaping () -> Void = {}, tickCallback: @escaping () -> Void = {}) {
         self.timeUpCallback = timeUpCallback
         self.tickCallback = tickCallback
         
         if !isRunning {
             self.countDownSeconds = self.targetSeconds
-            timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(self.tick(_:)), userInfo: nil, repeats: true)
-            NSRunLoop.currentRunLoop().addTimer(timer!, forMode: NSRunLoopCommonModes)
-            startTime = NSDate()
+            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.tick(_:)), userInfo: nil, repeats: true)
+            RunLoop.current.add(timer!, forMode: RunLoopMode.commonModes)
+            startTime = Date()
             
             startCallback()
         } else {
@@ -41,9 +42,12 @@ class TimerCore: NSObject {
         isRunning = !isRunning
     }
     
-    func tick(timer : NSTimer) {
-        let interval:NSTimeInterval = NSDate().timeIntervalSinceDate(startTime!)
+    func tick(_ timer : Timer) {
+        let interval:TimeInterval = Date().timeIntervalSince(startTime!)
         print(interval)
+        print(Date())
+        print(startTime ?? 0)
+        self.log = String.init(format: "%f=====%s======%s\n", interval ,String(describing: startTime!), String(describing: Date()))
         countDownSeconds = targetSeconds - Int(interval)
         self.tickCallback()
         
@@ -55,13 +59,13 @@ class TimerCore: NSObject {
         
     }
     
-    private func reset() {
+    fileprivate func reset() {
         countDownSeconds = 0
         timer?.invalidate()
     }
     
-    func put(number:Int) {
-        seq.removeAtIndex(0)
+    func put(_ number:Int) {
+        seq.remove(at: 0)
         seq.append(number)
 
         var hour = seq[0] * 10 + seq[1]
@@ -75,10 +79,15 @@ class TimerCore: NSObject {
     }
 
     
-    func secToDisplayable(seconds: Int) -> String {
+    func secToDisplayable(_ seconds: Int) -> String {
         let hour = seconds / 3600
         let minute = (seconds - hour * 3600) / 60
         let second = seconds - hour * 3600 - minute * 60
-        return String(format: "%02d:%02d:%02d", hour, minute, second)
+
+        var displayable =  String(format: "%02d:%02d", minute, second)
+        if hour > 0 {
+            displayable = String(format: "%02d:%@", hour, displayable)
+        }
+        return displayable
     }
 }

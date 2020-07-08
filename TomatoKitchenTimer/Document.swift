@@ -15,7 +15,7 @@ class Document: NSDocument {
         // Add your subclass-specific initialization here.
     }
 
-    override class func autosavesInPlace() -> Bool {
+    class func autosavesInPlace() -> Bool {
         return true
     }
 

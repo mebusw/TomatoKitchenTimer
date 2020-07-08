@@ -28,9 +28,18 @@ class ViewController: NSViewController, NSControlTextEditingDelegate {
     // http://stackoverflow.com/questions/28012566/swift-osx-key-event
     let keyCodeToNumberMapping:[UInt16:Int] = [18:1, 19:2, 20:3, 21:4, 23:5, 22:6, 26:7, 28:8, 25:9, 29:0]
     
+    override func viewDidAppear() {
+        super.viewDidAppear()
+        self.view.window?.title = "Tomato Timer"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NSEvent.addLocalMonitorForEvents(matching: .keyDown) {
+            self.keyDown(with: $0)
+            return $0
+        }
         // Do any additional setup after loading the view.
     }
 
@@ -44,9 +53,9 @@ class ViewController: NSViewController, NSControlTextEditingDelegate {
     func playSoundClip() {
         do {
             let beepSound = URL(fileURLWithPath: Bundle.main.path(forResource: "Rooster", ofType: "mp3")!)
-            print(beepSound)
+//            print(beepSound)
             beepPlayer = try AVAudioPlayer(contentsOf: beepSound)
-            print(beepPlayer!.play())
+            beepPlayer!.play()
         } catch {
             print("No sound found")
         }
@@ -77,6 +86,7 @@ class ViewController: NSViewController, NSControlTextEditingDelegate {
 
     override func keyDown(with event: NSEvent) {
         super.keyDown(with: event)
+        print(event.keyCode)
 
         switch event.keyCode {
         case KEY_ENTER:

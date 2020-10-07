@@ -1,0 +1,44 @@
+name: Xcodebuild Action
+  # You may pin to the exact commit or the version.
+  # uses: sersoft-gmbh/xcodebuild-action@503691f8fd9dab1904132234e5217b71e11a1b4d
+  uses: sersoft-gmbh/xcodebuild-action@v1.2.1
+  with:
+    # The path to the xcworkspace to build. Mutually exclusive with `project` and `spm-package`.
+    workspace: # optional
+    # The path to the xcodeproj to build. Mutually exclusive with `workspace` and `spm-package`.
+    project: # optional
+    # The path to the SPM package (folder containing Package.swift) to build. Mutually exclusive with `workspace` and `project`.
+    spm-package: # optional
+    # The scheme to build. Required when using a workspace.
+    scheme: # optional
+    # The destination specifier to build.
+    destination: # optional
+    # The configuration to build.
+    configuration: # optional
+    # The SDK to use for building.
+    sdk: # optional
+    # A list of tests to skip.
+    skip-testing: # optional
+    # Override the folder that should be used for derived data
+    derived-data-path: # optional
+    # Arbitrary, space separated build settings (e.g. PLATFORM_NAME=iphonesimulator).
+    build-settings: # optional
+    # The action to perform (e.g. build, test, ...).
+    action: # default is test
+    # Whether the output of xcodebuild should be forwarded to xcpretty.
+    use-xcpretty: # default is true
+    # <TEST ONLY> Whether the commands should only be printed but not actually run. Only used in test.
+    dry-run: # optional
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+
+

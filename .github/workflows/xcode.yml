@@ -1,4 +1,4 @@
-name: Swift
+name: Swift-XCode12
 
 on:
   push:
@@ -16,5 +16,8 @@ jobs:
     - uses: sersoft-gmbh/xcodebuild-action@v1.2.1
       with:
         workspace: TomatoKitchenTimer
+        scheme: TomatoKitchenTimer
+        destination: platform=macOS
+        action: test
 
 

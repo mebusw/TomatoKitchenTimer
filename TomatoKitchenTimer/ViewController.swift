@@ -10,7 +10,7 @@ import Cocoa
 import AVFoundation
 
 /* TODO: 
- add shortcut buttons for 1m, 2m, 3m, 4m, 5m, 8m, 10m, 15m, 25m
+ add shortcut buttons for 1m, 2m, 3m, 4m, 5m, 8m, 10m, 15m, 25m with shortcut key
  add progress bar. when it's less than 10%, then start to blink and keep at 5%
  keyin cooldown
  choose music

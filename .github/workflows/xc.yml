@@ -1,6 +1,4 @@
 name: Xcodebuild Action
-  # You may pin to the exact commit or the version.
-  # uses: sersoft-gmbh/xcodebuild-action@503691f8fd9dab1904132234e5217b71e11a1b4d
   uses: sersoft-gmbh/xcodebuild-action@v1.2.1
   with:
     # The path to the xcworkspace to build. Mutually exclusive with `project` and `spm-package`.

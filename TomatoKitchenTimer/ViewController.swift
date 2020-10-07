@@ -10,6 +10,8 @@ import Cocoa
 import AVFoundation
 
 /* TODO: 
+ add shortcut buttons for 1m, 2m, 3m, 4m, 5m, 8m, 10m, 15m, 25m
+ add progress bar. when it's less than 10%, then start to blink and keep at 5%
  keyin cooldown
  choose music
  animation
@@ -18,9 +20,11 @@ import AVFoundation
 class ViewController: NSViewController, NSControlTextEditingDelegate {
 
     let KEY_ENTER:UInt16 = 36
+    let KEY_SPACE:UInt16 = 49
     @IBOutlet var countDownText:NSTextFieldCell?
     @IBOutlet var targetText:NSTextFieldCell?
     @IBOutlet var startStopBtn:NSButton?
+    @IBOutlet var progressIndicator:NSProgressIndicator?
     var timerCore = TimerCore()
     var beepPlayer:AVAudioPlayer?   /** AVAudioPlayer must be a class-level variable */
     @IBOutlet var logger:NSTextFieldCell?
@@ -30,16 +34,12 @@ class ViewController: NSViewController, NSControlTextEditingDelegate {
     
     override func viewDidAppear() {
         super.viewDidAppear()
-        self.view.window?.title = "Tomato Timer"
+        self.view.window?.title = "Tomato Kitchen Timer"
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NSEvent.addLocalMonitorForEvents(matching: .keyDown) {
-            self.keyDown(with: $0)
-            return $0
-        }
         // Do any additional setup after loading the view.
     }
 
@@ -79,7 +79,7 @@ class ViewController: NSViewController, NSControlTextEditingDelegate {
             },
             tickCallback: {
                 self.countDownText?.title = self.timerCore.secToDisplayable(self.timerCore.countDownSeconds)
-                self.logger?.title += self.timerCore.log
+                self.progressIndicator?.doubleValue = Double(self.timerCore.countDownSeconds) / Double( self.timerCore.targetSeconds) * 100
             })
     }
 

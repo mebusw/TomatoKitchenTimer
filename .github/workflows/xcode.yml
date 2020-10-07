@@ -15,7 +15,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: sersoft-gmbh/xcodebuild-action@v1.2.1
       with:
-        workspace: TomatoKitchenTimer
+        project: TomatoKitchenTimer.xcodeproj
         scheme: TomatoKitchenTimer
         destination: platform=macOS
         action: test

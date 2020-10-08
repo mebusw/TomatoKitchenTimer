@@ -10,28 +10,37 @@ import Cocoa
 import AVFoundation
 
 /* TODO: 
- add shortcut buttons for 1m, 2m, 3m, 4m, 5m, 8m, 10m, 15m, 25m with shortcut key
  add progress bar. when it's less than 10%, then start to blink and keep at 5%
  keyin cooldown
  choose music
- animation
  */
 
 class ViewController: NSViewController, NSControlTextEditingDelegate {
+    enum KEY: UInt16 {
+        case A = 0
+        case S = 1
+        case D = 2
+        case F = 3
+        case G = 5
+        case Z = 6
+        case X = 7
+        case C = 8
+        case V = 9
+        case ENTER = 36
+        case SPACE = 49
+    }
 
-    let KEY_ENTER:UInt16 = 36
-    let KEY_SPACE:UInt16 = 49
     @IBOutlet var countDownText:NSTextFieldCell?
     @IBOutlet var targetText:NSTextFieldCell?
     @IBOutlet var startStopBtn:NSButton?
     @IBOutlet var progressIndicator:NSProgressIndicator?
     var timerCore = TimerCore()
     var beepPlayer:AVAudioPlayer?   /** AVAudioPlayer must be a class-level variable */
-    @IBOutlet var logger:NSTextFieldCell?
     
     // http://stackoverflow.com/questions/28012566/swift-osx-key-event
     let keyCodeToNumberMapping:[UInt16:Int] = [18:1, 19:2, 20:3, 21:4, 23:5, 22:6, 26:7, 28:8, 25:9, 29:0]
     
+    let KeyCodeToMinuteMapping:[KEY:Int] = [.A:1, .S:2, .D:3, .F:4, .G:5, .Z:8, .X:10, .C:15, .V:20]
     override func viewDidAppear() {
         super.viewDidAppear()
         self.view.window?.title = "Tomato Kitchen Timer"
@@ -41,6 +50,13 @@ class ViewController: NSViewController, NSControlTextEditingDelegate {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+//        let btnFor1Min:NSButton = NSButton(title: "2m", target: self, action: #selector(self.shortcutPressed(_:)))
+//        btnFor1Min.frame = CGRect(x: 200, y: 30, width: 100, height: 30)
+//        view.addSubview(btnFor1Min)
+    }
+    
+    @objc func shortcutPressed(_ sender: NSButton) {
+        print(sender)
     }
 
     override var representedObject: Any? {
@@ -67,6 +83,7 @@ class ViewController: NSViewController, NSControlTextEditingDelegate {
                 //self.startStopBtn?.title = "Stop"
                 self.startStopBtn?.image = NSImage(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: "PicButtonStop", ofType: "png")!))
                 self.countDownText?.title = self.timerCore.secToDisplayable(self.timerCore.targetSeconds)
+                self.progressIndicator?.doubleValue = 100
             },
             stopCallback: {
                 //self.startStopBtn?.title = "Start"
@@ -81,6 +98,7 @@ class ViewController: NSViewController, NSControlTextEditingDelegate {
                 self.countDownText?.title = self.timerCore.secToDisplayable(self.timerCore.countDownSeconds)
                 self.progressIndicator?.doubleValue = Double(self.timerCore.countDownSeconds) / Double( self.timerCore.targetSeconds) * 100
             })
+        
     }
 
 
@@ -89,11 +107,17 @@ class ViewController: NSViewController, NSControlTextEditingDelegate {
         print(event.keyCode)
 
         switch event.keyCode {
-        case KEY_ENTER:
+        case KEY.ENTER.rawValue:
             toogleStartStop(self)
         case 18,19,20,21,23,22,26,28,25,29:
             timerCore.put(keyCodeToNumber(event.keyCode))
             targetText?.title = timerCore.secToDisplayable(timerCore.targetSeconds)
+        case 0,1,2,3,5,6,7,8,9:
+            timerCore.targetSeconds = 60 * KeyCodeToMinuteMapping[KEY(rawValue: UInt16(event.keyCode))!]!
+            targetText?.title = timerCore.secToDisplayable(timerCore.targetSeconds)
+            timerCore.isRunning = true
+            toogleStartStop(self)
+            toogleStartStop(self)
         default:
             print("other keys, \(event.keyCode)")
         }

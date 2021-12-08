@@ -47,17 +47,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		85331A5A1CF3EFA70086BE54 /* TomatoKitchenTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TomatoKitchenTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		85331A5A1CF3EFA70086BE54 /* Scream Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Scream Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		85331A5D1CF3EFA70086BE54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85331A5F1CF3EFA70086BE54 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		85331A611CF3EFA70086BE54 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		85331A631CF3EFA70086BE54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85331A661CF3EFA70086BE54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		85331A681CF3EFA70086BE54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		85331A6D1CF3EFA80086BE54 /* TomatoKitchenTimer.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TomatoKitchenTimer.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		85331A6D1CF3EFA80086BE54 /* Scream Timer.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Scream Timer.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		85331A711CF3EFA80086BE54 /* TomatoKitchenTimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomatoKitchenTimerTests.swift; sourceTree = "<group>"; };
 		85331A731CF3EFA80086BE54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		85331A781CF3EFA80086BE54 /* TomatoKitchenTimer.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TomatoKitchenTimer.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		85331A781CF3EFA80086BE54 /* Scream Timer.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Scream Timer.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		85331A7E1CF3EFA80086BE54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85331A8D1CF4B2430086BE54 /* TimerCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerCore.swift; sourceTree = "<group>"; };
 		85331A921CF4B9500086BE54 /* TomatoKitchenTimerUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TomatoKitchenTimerUITests-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -115,9 +115,9 @@
 		85331A5B1CF3EFA70086BE54 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				85331A5A1CF3EFA70086BE54 /* TomatoKitchenTimer.app */,
-				85331A6D1CF3EFA80086BE54 /* TomatoKitchenTimer.xctest */,
-				85331A781CF3EFA80086BE54 /* TomatoKitchenTimer.xctest */,
+				85331A5A1CF3EFA70086BE54 /* Scream Timer.app */,
+				85331A6D1CF3EFA80086BE54 /* Scream Timer.xctest */,
+				85331A781CF3EFA80086BE54 /* Scream Timer.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -175,9 +175,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		85331A591CF3EFA70086BE54 /* TomatoKitchenTimer */ = {
+		85331A591CF3EFA70086BE54 /* Scream Timer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 85331A811CF3EFA80086BE54 /* Build configuration list for PBXNativeTarget "TomatoKitchenTimer" */;
+			buildConfigurationList = 85331A811CF3EFA80086BE54 /* Build configuration list for PBXNativeTarget "Scream Timer" */;
 			buildPhases = (
 				85331A561CF3EFA70086BE54 /* Sources */,
 				85331A571CF3EFA70086BE54 /* Frameworks */,
@@ -187,14 +187,14 @@
 			);
 			dependencies = (
 			);
-			name = TomatoKitchenTimer;
+			name = "Scream Timer";
 			productName = BigTimer;
-			productReference = 85331A5A1CF3EFA70086BE54 /* TomatoKitchenTimer.app */;
+			productReference = 85331A5A1CF3EFA70086BE54 /* Scream Timer.app */;
 			productType = "com.apple.product-type.application";
 		};
-		85331A6C1CF3EFA80086BE54 /* TomatoKitchenTimerTests */ = {
+		85331A6C1CF3EFA80086BE54 /* Scream TimerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 85331A841CF3EFA80086BE54 /* Build configuration list for PBXNativeTarget "TomatoKitchenTimerTests" */;
+			buildConfigurationList = 85331A841CF3EFA80086BE54 /* Build configuration list for PBXNativeTarget "Scream TimerTests" */;
 			buildPhases = (
 				85331A691CF3EFA80086BE54 /* Sources */,
 				85331A6A1CF3EFA80086BE54 /* Frameworks */,
@@ -205,14 +205,14 @@
 			dependencies = (
 				85331A6F1CF3EFA80086BE54 /* PBXTargetDependency */,
 			);
-			name = TomatoKitchenTimerTests;
+			name = "Scream TimerTests";
 			productName = BigTimerTests;
-			productReference = 85331A6D1CF3EFA80086BE54 /* TomatoKitchenTimer.xctest */;
+			productReference = 85331A6D1CF3EFA80086BE54 /* Scream Timer.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		85331A771CF3EFA80086BE54 /* TomatoKitchenTimerUITests */ = {
+		85331A771CF3EFA80086BE54 /* Scream TimerUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 85331A871CF3EFA80086BE54 /* Build configuration list for PBXNativeTarget "TomatoKitchenTimerUITests" */;
+			buildConfigurationList = 85331A871CF3EFA80086BE54 /* Build configuration list for PBXNativeTarget "Scream TimerUITests" */;
 			buildPhases = (
 				85331A741CF3EFA80086BE54 /* Sources */,
 				85331A751CF3EFA80086BE54 /* Frameworks */,
@@ -223,9 +223,9 @@
 			dependencies = (
 				85331A7A1CF3EFA80086BE54 /* PBXTargetDependency */,
 			);
-			name = TomatoKitchenTimerUITests;
+			name = "Scream TimerUITests";
 			productName = BigTimerUITests;
-			productReference = 85331A781CF3EFA80086BE54 /* TomatoKitchenTimer.xctest */;
+			productReference = 85331A781CF3EFA80086BE54 /* Scream Timer.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -254,7 +254,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 85331A551CF3EFA70086BE54 /* Build configuration list for PBXProject "TomatoKitchenTimer" */;
+			buildConfigurationList = 85331A551CF3EFA70086BE54 /* Build configuration list for PBXProject "Scream Timer" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -267,9 +267,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				85331A591CF3EFA70086BE54 /* TomatoKitchenTimer */,
-				85331A6C1CF3EFA80086BE54 /* TomatoKitchenTimerTests */,
-				85331A771CF3EFA80086BE54 /* TomatoKitchenTimerUITests */,
+				85331A591CF3EFA70086BE54 /* Scream Timer */,
+				85331A6C1CF3EFA80086BE54 /* Scream TimerTests */,
+				85331A771CF3EFA80086BE54 /* Scream TimerUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -343,12 +343,12 @@
 /* Begin PBXTargetDependency section */
 		85331A6F1CF3EFA80086BE54 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 85331A591CF3EFA70086BE54 /* TomatoKitchenTimer */;
+			target = 85331A591CF3EFA70086BE54 /* Scream Timer */;
 			targetProxy = 85331A6E1CF3EFA80086BE54 /* PBXContainerItemProxy */;
 		};
 		85331A7A1CF3EFA80086BE54 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 85331A591CF3EFA70086BE54 /* TomatoKitchenTimer */;
+			target = 85331A591CF3EFA70086BE54 /* Scream Timer */;
 			targetProxy = 85331A791CF3EFA80086BE54 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -480,7 +480,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mebusw.TomatoKitchenTimer;
-				PRODUCT_NAME = TomatoKitchenTimer;
+				PRODUCT_NAME = "Scream Timer";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -495,7 +495,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mebusw.TomatoKitchenTimer;
-				PRODUCT_NAME = TomatoKitchenTimer;
+				PRODUCT_NAME = "Scream Timer";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -508,9 +508,9 @@
 				INFOPLIST_FILE = TomatoKitchenTimerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mebusw.TomatoKitchenTimerTests;
-				PRODUCT_NAME = TomatoKitchenTimer;
+				PRODUCT_NAME = "Scream Timer";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TomatoKitchenTimer.app/Contents/MacOS/TomatoKitchenTimer";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Scream Timer.app/Contents/MacOS/Scream Timer";
 			};
 			name = Debug;
 		};
@@ -522,9 +522,9 @@
 				INFOPLIST_FILE = TomatoKitchenTimerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mebusw.TomatoKitchenTimerTests;
-				PRODUCT_NAME = TomatoKitchenTimer;
+				PRODUCT_NAME = "Scream Timer";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TomatoKitchenTimer.app/Contents/MacOS/TomatoKitchenTimer";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Scream Timer.app/Contents/MacOS/Scream Timer";
 			};
 			name = Release;
 		};
@@ -536,7 +536,7 @@
 				INFOPLIST_FILE = TomatoKitchenTimerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mebusw.TomatoKitchenTimerUITests;
-				PRODUCT_NAME = TomatoKitchenTimer;
+				PRODUCT_NAME = "Scream Timer";
 				SWIFT_OBJC_BRIDGING_HEADER = "TomatoKitchenTimerUITests/TomatoKitchenTimerUITests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -552,7 +552,7 @@
 				INFOPLIST_FILE = TomatoKitchenTimerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mebusw.TomatoKitchenTimerUITests;
-				PRODUCT_NAME = TomatoKitchenTimer;
+				PRODUCT_NAME = "Scream Timer";
 				SWIFT_OBJC_BRIDGING_HEADER = "TomatoKitchenTimerUITests/TomatoKitchenTimerUITests-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = TomatoKitchenTimer;
@@ -562,7 +562,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		85331A551CF3EFA70086BE54 /* Build configuration list for PBXProject "TomatoKitchenTimer" */ = {
+		85331A551CF3EFA70086BE54 /* Build configuration list for PBXProject "Scream Timer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				85331A7F1CF3EFA80086BE54 /* Debug */,
@@ -571,7 +571,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		85331A811CF3EFA80086BE54 /* Build configuration list for PBXNativeTarget "TomatoKitchenTimer" */ = {
+		85331A811CF3EFA80086BE54 /* Build configuration list for PBXNativeTarget "Scream Timer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				85331A821CF3EFA80086BE54 /* Debug */,
@@ -580,7 +580,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		85331A841CF3EFA80086BE54 /* Build configuration list for PBXNativeTarget "TomatoKitchenTimerTests" */ = {
+		85331A841CF3EFA80086BE54 /* Build configuration list for PBXNativeTarget "Scream TimerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				85331A851CF3EFA80086BE54 /* Debug */,
@@ -589,7 +589,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		85331A871CF3EFA80086BE54 /* Build configuration list for PBXNativeTarget "TomatoKitchenTimerUITests" */ = {
+		85331A871CF3EFA80086BE54 /* Build configuration list for PBXNativeTarget "Scream TimerUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				85331A881CF3EFA80086BE54 /* Debug */,

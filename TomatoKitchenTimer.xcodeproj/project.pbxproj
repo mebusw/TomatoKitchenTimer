@@ -235,7 +235,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 1310;
 				ORGANIZATIONNAME = JackyShen;
 				TargetAttributes = {
 					85331A591CF3EFA70086BE54 = {
@@ -254,7 +254,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 85331A551CF3EFA70086BE54 /* Build configuration list for PBXProject "Scream Timer" */;
+			buildConfigurationList = 85331A551CF3EFA70086BE54 /* Build configuration list for PBXProject "TomatoKitchenTimer" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -389,6 +389,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -445,6 +446,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -562,7 +564,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		85331A551CF3EFA70086BE54 /* Build configuration list for PBXProject "Scream Timer" */ = {
+		85331A551CF3EFA70086BE54 /* Build configuration list for PBXProject "TomatoKitchenTimer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				85331A7F1CF3EFA80086BE54 /* Debug */,

@@ -31,48 +31,48 @@ class TomatoKitchenTimerTests: XCTestCase {
     
 
     func testPutMoreThanSixNumbers() {
-        timerCore.put(1)
-        timerCore.put(2)
-        timerCore.put(3)
-        timerCore.put(4)
-        timerCore.put(5)
-        timerCore.put(6)
-        XCTAssertEqual([1, 2, 3, 4, 5, 6], timerCore.seq)
+        timerCore.putHMS(1)
+        timerCore.putHMS(2)
+        timerCore.putHMS(3)
+        timerCore.putHMS(4)
+        timerCore.putHMS(5)
+        timerCore.putHMS(6)
+        XCTAssertEqual([1, 2, 3, 4, 5, 6], timerCore.seq6)
         
-        timerCore.put(7)
-        XCTAssertEqual([2, 3, 4, 5, 6, 7], timerCore.seq)
+        timerCore.putHMS(7)
+        XCTAssertEqual([2, 3, 4, 5, 6, 7], timerCore.seq6)
     }
 
     func testGenerateNumberPairsAndTotal() {
-        timerCore.put(1)
-        timerCore.put(2)
-        timerCore.put(3)
-        timerCore.put(4)
-        timerCore.put(5)
-        timerCore.put(6)
+        timerCore.putHMS(1)
+        timerCore.putHMS(2)
+        timerCore.putHMS(3)
+        timerCore.putHMS(4)
+        timerCore.putHMS(5)
+        timerCore.putHMS(6)
         
         XCTAssertEqual(12 * 3600 + 34 * 60 + 56, timerCore.targetSeconds)
     }
 
     func testValidateNumberPairs() {
-        timerCore.put(7)
+        timerCore.putHMS(7)
         XCTAssertEqual(7, timerCore.targetSeconds)
         
-        timerCore.put(8)
+        timerCore.putHMS(8)
         XCTAssertEqual(59, timerCore.targetSeconds)
         
-        timerCore.put(1)
+        timerCore.putHMS(1)
         XCTAssertEqual(7 * 60 + 59, timerCore.targetSeconds)
 
-        timerCore.put(2)
+        timerCore.putHMS(2)
         XCTAssertEqual(59 * 60 + 12, timerCore.targetSeconds)
 
     }
 
     func testSecondsToDisplayable() {
-        XCTAssertEqual("00:02", timerCore.secToDisplayable(2))
-        XCTAssertEqual("01:02", timerCore.secToDisplayable(62))
-        XCTAssertEqual("01:01:02", timerCore.secToDisplayable(3662))
+        XCTAssertEqual("00:02", timerCore.secToDisplayableHMS(2))
+        XCTAssertEqual("01:02", timerCore.secToDisplayableHMS(62))
+        XCTAssertEqual("01:01:02", timerCore.secToDisplayableHMS(3662))
     }
         
     func testPerformanceExample() {

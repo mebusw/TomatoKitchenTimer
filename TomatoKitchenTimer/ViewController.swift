@@ -18,6 +18,10 @@ import AVFoundation
 class ViewController: NSViewController, NSControlTextEditingDelegate {
 
     let KEY_ENTER:UInt16 = 36
+    let KEY_SPACE:UInt16 = 49
+    let KEY_ESC:UInt16 = 53
+    let KEY_BACKSPACE:UInt16 = 51
+    
     @IBOutlet var countDownText:NSTextFieldCell?
     @IBOutlet var targetText:NSTextFieldCell?
     @IBOutlet var startStopBtn:NSButton?
@@ -30,7 +34,7 @@ class ViewController: NSViewController, NSControlTextEditingDelegate {
     
     override func viewDidAppear() {
         super.viewDidAppear()
-        self.view.window?.title = "Tomato Timer"
+        self.view.window?.title = "Scream Timer"
     }
     
     override func viewDidLoad() {
@@ -66,11 +70,16 @@ class ViewController: NSViewController, NSControlTextEditingDelegate {
             startCallback: {
                 //self.startStopBtn?.title = "Stop"
                 self.startStopBtn?.image = NSImage(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: "PicButtonStop", ofType: "png")!))
-                self.countDownText?.title = self.timerCore.secToDisplayable(self.timerCore.targetSeconds)
+                self.countDownText?.title = self.timerCore.secToDisplayableMS(self.timerCore.targetSeconds)
             },
             stopCallback: {
                 //self.startStopBtn?.title = "Start"
                 self.startStopBtn?.image = NSImage(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: "PicButtonStart", ofType: "png")!))
+            },
+            escCallback: {
+                self.startStopBtn?.image = NSImage(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: "PicButtonStart", ofType: "png")!))
+                self.countDownText?.title = self.timerCore.secToDisplayableMS(self.timerCore.countDownSeconds)
+                self.targetText?.title = self.timerCore.secToDisplayableMS(self.timerCore.countDownSeconds)
             },
             timeUpCallback: {
                 //self.startStopBtn?.title = "Start"
@@ -78,9 +87,10 @@ class ViewController: NSViewController, NSControlTextEditingDelegate {
                 self.playSoundClip()
             },
             tickCallback: {
-                self.countDownText?.title = self.timerCore.secToDisplayable(self.timerCore.countDownSeconds)
+                self.countDownText?.title = self.timerCore.secToDisplayableMS(self.timerCore.countDownSeconds)
                 self.logger?.title += self.timerCore.log
-            })
+            }
+        )
     }
 
 
@@ -89,11 +99,18 @@ class ViewController: NSViewController, NSControlTextEditingDelegate {
         print(event.keyCode)
 
         switch event.keyCode {
-        case KEY_ENTER:
+        case KEY_ENTER,KEY_SPACE:
             toogleStartStop(self)
         case 18,19,20,21,23,22,26,28,25,29:
-            timerCore.put(keyCodeToNumber(event.keyCode))
-            targetText?.title = timerCore.secToDisplayable(timerCore.targetSeconds)
+            timerCore.putMS(keyCodeToNumber(event.keyCode))
+            targetText?.title = timerCore.secToDisplayableMS(timerCore.targetSeconds)
+        case KEY_ESC:
+            timerCore.setEscaping(true)
+            toogleStartStop(self)
+            targetText?.title = timerCore.secToDisplayableMS(timerCore.targetSeconds)
+        case KEY_BACKSPACE:
+            timerCore.delByBackSpace()
+            targetText?.title = timerCore.secToDisplayableMS(timerCore.targetSeconds)
         default:
             print("other keys, \(event.keyCode)")
         }

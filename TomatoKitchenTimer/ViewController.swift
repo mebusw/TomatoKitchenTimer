@@ -51,10 +51,10 @@ class ViewController: NSViewController, NSControlTextEditingDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-//        let btnFor1Min:NSButton = NSButton(title: "2m", target: self, action: #selector(self.shortcutPressed(_:)))
-//        btnFor1Min.frame = CGRect(x: 200, y: 30, width: 100, height: 30)
-//        view.addSubview(btnFor1Min)
+        //TODO adjust size according to screen size where it is
+        let rect = NSScreen.main?.frame
+        print("\(rect?.size.height), \(rect?.size.width)")
+        
     }
     
     @objc func shortcutPressed(_ sender: NSButton) {

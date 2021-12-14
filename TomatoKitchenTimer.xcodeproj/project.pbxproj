@@ -53,12 +53,9 @@
 		85331A611CF3EFA70086BE54 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		85331A631CF3EFA70086BE54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85331A661CF3EFA70086BE54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		85331A681CF3EFA70086BE54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85331A6D1CF3EFA80086BE54 /* TomatoKitchenTimer.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TomatoKitchenTimer.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		85331A711CF3EFA80086BE54 /* TomatoKitchenTimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomatoKitchenTimerTests.swift; sourceTree = "<group>"; };
-		85331A731CF3EFA80086BE54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85331A781CF3EFA80086BE54 /* TomatoKitchenTimer.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TomatoKitchenTimer.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		85331A7E1CF3EFA80086BE54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85331A8D1CF4B2430086BE54 /* TimerCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerCore.swift; sourceTree = "<group>"; };
 		85331A921CF4B9500086BE54 /* TomatoKitchenTimerUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TomatoKitchenTimerUITests-Bridging-Header.h"; sourceTree = "<group>"; };
 		85331A931CF4B9500086BE54 /* TomatoKitchenTimerUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TomatoKitchenTimerUITests.swift; sourceTree = "<group>"; };
@@ -131,7 +128,6 @@
 				85331A611CF3EFA70086BE54 /* Document.swift */,
 				85331A631CF3EFA70086BE54 /* Assets.xcassets */,
 				85331A651CF3EFA70086BE54 /* Main.storyboard */,
-				85331A681CF3EFA70086BE54 /* Info.plist */,
 				85331A8D1CF4B2430086BE54 /* TimerCore.swift */,
 			);
 			path = TomatoKitchenTimer;
@@ -141,7 +137,6 @@
 			isa = PBXGroup;
 			children = (
 				85331A711CF3EFA80086BE54 /* TomatoKitchenTimerTests.swift */,
-				85331A731CF3EFA80086BE54 /* Info.plist */,
 			);
 			path = TomatoKitchenTimerTests;
 			sourceTree = "<group>";
@@ -149,7 +144,6 @@
 		85331A7B1CF3EFA80086BE54 /* TomatoKitchenTimerUITests */ = {
 			isa = PBXGroup;
 			children = (
-				85331A7E1CF3EFA80086BE54 /* Info.plist */,
 				85331A931CF4B9500086BE54 /* TomatoKitchenTimerUITests.swift */,
 				85331A921CF4B9500086BE54 /* TomatoKitchenTimerUITests-Bridging-Header.h */,
 			);

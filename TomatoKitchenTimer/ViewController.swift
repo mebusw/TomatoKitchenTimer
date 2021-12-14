@@ -28,6 +28,8 @@ class ViewController: NSViewController, NSControlTextEditingDelegate {
         case V = 9
         case ENTER = 36
         case SPACE = 49
+        case ESC = 53
+        case BACKSPACE = 51
     }
 
     @IBOutlet var countDownText:NSTextFieldCell?
@@ -109,6 +111,9 @@ class ViewController: NSViewController, NSControlTextEditingDelegate {
         switch event.keyCode {
         case KEY.ENTER.rawValue:
             toogleStartStop(self)
+        case KEY.BACKSPACE.rawValue:
+            timerCore.delByBackSpace()
+            targetText?.title = timerCore.secToDisplayable(timerCore.targetSeconds)
         case 18,19,20,21,23,22,26,28,25,29:
             timerCore.put(keyCodeToNumber(event.keyCode))
             targetText?.title = timerCore.secToDisplayable(timerCore.targetSeconds)

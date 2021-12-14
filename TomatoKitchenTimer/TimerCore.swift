@@ -64,18 +64,22 @@ class TimerCore: NSObject {
         timer?.invalidate()
     }
     
-    func put(_ number:Int) {
-        seq.remove(at: 0)
-        seq.append(number)
-
+    fileprivate func caculateTargetSeconds() {
         var hour = seq[0] * 10 + seq[1]
         hour = hour > 23 ? 23 : hour
         var minute = seq[2] * 10 + seq[3]
         minute = minute > 59 ? 59 : minute
         var second = seq[4] * 10 + seq[5]
         second = second > 59 ? 59 : second
-    
+        
         targetSeconds = hour * 3600 + minute * 60 + second
+    }
+    
+    func put(_ number:Int) {
+        seq.remove(at: 0)
+        seq.append(number)
+
+        caculateTargetSeconds()
     }
 
     
@@ -89,5 +93,17 @@ class TimerCore: NSObject {
             displayable = String(format: "%02d:%@", hour, displayable)
         }
         return displayable
+    }
+    
+    func delByBackSpace()
+    {
+        if !isRunning {
+            for index in (1...5).reversed() {
+                seq[index] = seq[index - 1]
+            }
+            seq[0] = 0
+
+            caculateTargetSeconds()
+        }
     }
 }

@@ -5,8 +5,8 @@
 **Warning** The unit tests only work with `Legacy Build System` in the Project Setting of XCode 12
 
 
-## Download DMG package
+## Downloads
 
-https://pan.baidu.com/s/1JNWNdYayFQRbzLBoFf5dHQ 
+Executable .app file for MacOS
 
-pwd:: dwyv 
+https://pan.baidu.com/s/1JNWNdYayFQRbzLBoFf5dHQ , pwd:: dwyv 

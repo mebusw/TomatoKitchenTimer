@@ -12,7 +12,6 @@ import AVFoundation
 /* TODO: 
  add progress bar. when it's less than 10%, then start to blink and keep at 5%
  keyin cooldown
- choose music
  */
 
 class ViewController: NSViewController, NSControlTextEditingDelegate {
@@ -36,6 +35,7 @@ class ViewController: NSViewController, NSControlTextEditingDelegate {
     @IBOutlet var targetText:NSTextFieldCell?
     @IBOutlet var startStopBtn:NSButton?
     @IBOutlet var progressIndicator:NSProgressIndicator?
+    @IBOutlet weak var soundPicker: NSPopUpButton?
     var timerCore = TimerCore()
     var beepPlayer:AVAudioPlayer?   /** AVAudioPlayer must be a class-level variable */
     
@@ -54,7 +54,8 @@ class ViewController: NSViewController, NSControlTextEditingDelegate {
         //TODO adjust size according to screen size where it is
         let rect = NSScreen.main?.frame
         print("\(rect?.size.height), \(rect?.size.width)")
-        
+
+        soundPicker?.selectItem(at: 0)
     }
     
     @objc func shortcutPressed(_ sender: NSButton) {
@@ -69,13 +70,17 @@ class ViewController: NSViewController, NSControlTextEditingDelegate {
 
     
     func playSoundClip() {
+        guard let soundName = soundPicker?.selectedItem?.title,
+              let soundURL = Bundle.main.url(forResource: soundName, withExtension: "mp3") else {
+            print("Selected sound resource not found")
+            return
+        }
+
         do {
-            let beepSound = URL(fileURLWithPath: Bundle.main.path(forResource: "Rooster", ofType: "mp3")!)
-//            print(beepSound)
-            beepPlayer = try AVAudioPlayer(contentsOf: beepSound)
-            beepPlayer!.play()
+            beepPlayer = try AVAudioPlayer(contentsOf: soundURL)
+            beepPlayer?.play()
         } catch {
-            print("No sound found")
+            print("Unable to play \(soundName): \(error.localizedDescription)")
         }
     }
 
@@ -132,4 +137,3 @@ class ViewController: NSViewController, NSControlTextEditingDelegate {
         return keyCodeToNumberMapping[keyCode]!
     }
 }
-

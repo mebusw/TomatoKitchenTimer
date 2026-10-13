@@ -728,16 +728,45 @@
                                 <textFieldCell key="cell" selectable="YES" id="exN-YX-5Na">
                                     <font key="font" metaFont="system"/>
                                     <string key="title">ShortCuts:
-A: 1m   S:2m   D:3m   F:4m   G:5m             Z:8m     X:10m  C:15m   V:20m</string>
+A:1m   S:2m   D:3m   F:4m   G:5m             Z:8m     X:10m  C:15m   V:20m</string>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sound-label">
+                                <rect key="frame" x="531" y="30" width="49" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" title="Sound:" id="sound-label-cell">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sound-picker">
+                                <rect key="frame" x="578" y="25" width="181" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <popUpButtonCell key="cell" type="push" title="Rooster" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" id="sound-picker-cell">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="sound-picker-menu">
+                                        <items>
+                                            <menuItem title="Rooster" state="on" id="sound-rooster"/>
+                                            <menuItem title="Alarm" id="sound-alarm"/>
+                                            <menuItem title="Banjo" id="sound-banjo"/>
+                                            <menuItem title="Dance 80s" id="sound-dance-80s"/>
+                                            <menuItem title="Gliss" id="sound-gliss"/>
+                                            <menuItem title="News" id="sound-news"/>
+                                            <menuItem title="Siren" id="sound-siren"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                            </popUpButton>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="countDownText" destination="Cc7-nU-5Mv" id="dIb-An-08V"/>
                         <outlet property="progressIndicator" destination="r6U-hj-eQD" id="g1G-WR-jA6"/>
+                        <outlet property="soundPicker" destination="sound-picker" id="sound-picker-outlet"/>
                         <outlet property="startStopBtn" destination="Ydj-3M-XFX" id="lhS-XI-2zj"/>
                         <outlet property="targetText" destination="9zR-mf-6dc" id="n0J-7L-8ou"/>
                     </connections>
